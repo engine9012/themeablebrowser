@@ -879,6 +879,7 @@
         self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         self.titleLabel.textColor = [CDVThemeableBrowserViewController colorFromRGBA:[self getStringFromDict:_browserOptions.title withKey:kThemeableBrowserPropColor withDefault:@"#000000ff"]];
 
+        [self.titleLabel setFont:[UIFont systemFontOfSize:22]];
         if (_browserOptions.title[kThemeableBrowserPropStaticText]) {
             self.titleLabel.text = _browserOptions.title[kThemeableBrowserPropStaticText];
         }
@@ -963,7 +964,9 @@
 
         if (buttonImage) {
             result = [UIButton buttonWithType:UIButtonTypeCustom];
-            result.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+//            result.bounds = CGRectMake(0, 0, buttonImage. size.width, buttonImage.size.height);
+            result.bounds = CGRectMake(0, 0, 20, 30);
+            NSLog(@"%@", NSStringFromCGRect(result.bounds));
 
             if (buttonImagePressed) {
                 [result setImage:buttonImagePressed forState:UIControlStateHighlighted];
@@ -1000,7 +1003,7 @@
     CGFloat toolbarHeight = self.toolbar.frame.size.height;
 
     // Layout leftButtons and rightButtons from outer to inner.
-    CGFloat left = 0;
+    CGFloat left = 10;
     for (UIButton* button in self.leftButtons) {
         CGSize size = button.frame.size;
         button.frame = CGRectMake(left, floorf((toolbarHeight - size.height) / 2), size.width, size.height);

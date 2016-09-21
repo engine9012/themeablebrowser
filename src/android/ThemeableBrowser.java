@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -584,12 +585,14 @@ public class ThemeableBrowser extends CordovaPlugin {
                 LinearLayout leftButtonContainer = new LinearLayout(cordova.getActivity());
                 FrameLayout.LayoutParams leftButtonContainerParams = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 leftButtonContainerParams.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
+                leftButtonContainerParams.setMargins(15, 0, 10, 0);
                 leftButtonContainer.setLayoutParams(leftButtonContainerParams);
                 leftButtonContainer.setVerticalGravity(Gravity.CENTER_VERTICAL);
 
                 // Right Button Container layout
                 LinearLayout rightButtonContainer = new LinearLayout(cordova.getActivity());
                 FrameLayout.LayoutParams rightButtonContainerParams = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                rightButtonContainerParams.setMargins(10, 0, 15, 0);
                 rightButtonContainerParams.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
                 rightButtonContainer.setLayoutParams(rightButtonContainerParams);
                 rightButtonContainer.setVerticalGravity(Gravity.CENTER_VERTICAL);
@@ -654,9 +657,9 @@ public class ThemeableBrowser extends CordovaPlugin {
                     }
                 );
 
-                if (back != null) {
-                    back.setEnabled(false);
-                }
+//                if (back != null) {
+//                    back.setEnabled(false);
+//                }
 
 
                 // Close/Done button
@@ -740,6 +743,8 @@ public class ThemeableBrowser extends CordovaPlugin {
                     title.setSingleLine();
                     title.setEllipsize(TextUtils.TruncateAt.END);
                     title.setGravity(Gravity.CENTER);
+                    title.setTextSize(20);
+                    title.setTypeface(Typeface.DEFAULT_BOLD); 
                     title.setTextColor(hexStringToColor(
                             features.title.color != null
                                     ? features.title.color : "#000000ff"));
