@@ -97,10 +97,12 @@ This plugin launches an in-app web view on top the existing [CordovaWebView](htt
     });
 
 ![iOS Sample](doc/images/ios_sample_01.png)
+![iOS Sample](doc/images/IMG_0654.png)
 ![iOS Menu Sample](doc/images/ios_menu_sample_01.png)
 
 ![Android Sample](doc/images/android_sample_01.png)
 ![Android Menu Sample](doc/images/android_menu_sample_01.png)
+
 
 Installation
 ------------
