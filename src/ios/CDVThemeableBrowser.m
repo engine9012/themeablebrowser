@@ -238,11 +238,16 @@
 
     if (self.themeableBrowserViewController == nil) {
         NSString* originalUA = [CDVUserAgentUtil originalUserAgent];
+//        self.themeableBrowserViewController = [[CDVThemeableBrowserViewController alloc]
+//                                               initWithUserAgent:originalUA prevUserAgent:[self.commandDelegate userAgent]
+//                                               browserOptions: browserOptions
+//                                               navigationDelete:self
+//                                               statusBarStyle:[UIApplication sharedApplication].statusBarStyle];
         self.themeableBrowserViewController = [[CDVThemeableBrowserViewController alloc]
                                                initWithUserAgent:originalUA prevUserAgent:[self.commandDelegate userAgent]
                                                browserOptions: browserOptions
                                                navigationDelete:self
-                                               statusBarStyle:[UIApplication sharedApplication].statusBarStyle];
+                                               statusBarStyle:UIStatusBarStyleLightContent];
 
         if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelegate)]) {
             self.themeableBrowserViewController.orientationDelegate = (UIViewController <CDVScreenOrientationDelegate>*)self.viewController;
